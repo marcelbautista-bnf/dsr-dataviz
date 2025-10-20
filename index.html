@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>BnF – DSR Data Flows</title>
+<style>
+  body { margin:0; font-family:sans-serif; background:#fafafa; }
+  svg { width:100vw; height:100vh; }
+  .tooltip {
+    position: absolute;
+    background: #222;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    visibility: hidden;
+  }
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<div class="tooltip" id="tooltip"></div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/+esm" type="module"></script>
+<script type="module" src="./script.js"></script>
+</body>
+</html>
