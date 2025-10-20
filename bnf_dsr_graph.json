@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "title": "BnF / DSR – Data Flows (macro-domain)",
+    "version": "1.0",
+    "notes": [
+      "Hypothèses: DSI orchestre APIs/diffusion; Métadonnées aligne/diffuse; Gallica consomme objets+notices;",
+      "Images & Prestations gère commandes/licences; Mission IA consomme graphes/IIIF/logs, renvoie évaluations."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "Direction DSR",
+      "group": "gouvernance",
+      "type": "domain"
+    },
+    {
+      "id": "SI (DSI)",
+      "group": "si",
+      "type": "domain"
+    },
+    {
+      "id": "Dépôt légal",
+      "group": "collections",
+      "type": "domain"
+    },
+    {
+      "id": "Numérisation & Production",
+      "group": "production",
+      "type": "domain"
+    },
+    {
+      "id": "Conservation",
+      "group": "collections",
+      "type": "domain"
+    },
+    {
+      "id": "Métadonnées",
+      "group": "donnees",
+      "type": "domain"
+    },
+    {
+      "id": "Images & Prestations",
+      "group": "services",
+      "type": "domain"
+    },
+    {
+      "id": "Gallica & Coop numérique",
+      "group": "diffusion",
+      "type": "domain"
+    },
+    {
+      "id": "Pilotage IA",
+      "group": "ia",
+      "type": "domain"
+    }
+  ],
+  "links": [
+    {
+      "source": "Conservation",
+      "target": "Dépôt légal",
+      "label": "Sélection/contrôle exemplaires",
+      "kind": "business"
+    },
+    {
+      "source": "Dépôt légal",
+      "target": "Métadonnées",
+      "label": "Signalement / notices primaires",
+      "kind": "business"
+    },
+    {
+      "source": "Conservation",
+      "target": "Numérisation & Production",
+      "label": "Préparation / traitements",
+      "kind": "business"
+    },
+    {
+      "source": "Dépôt légal",
+      "target": "Numérisation & Production",
+      "label": "Flux docs à numériser",
+      "kind": "business"
+    },
+    {
+      "source": "Numérisation & Production",
+      "target": "SI (DSI)",
+      "label": "Ingest / stockage / ETL",
+      "kind": "technique"
+    },
+    {
+      "source": "Numérisation & Production",
+      "target": "Métadonnées",
+      "label": "Liens image↔notice",
+      "kind": "technique"
+    },
+    {
+      "source": "Métadonnées",
+      "target": "Gallica & Coop numérique",
+      "label": "Exports / feeds notices",
+      "kind": "technique"
+    },
+    {
+      "source": "Métadonnées",
+      "target": "Images & Prestations",
+      "label": "Exports pour clients",
+      "kind": "business"
+    },
+    {
+      "source": "Métadonnées",
+      "target": "SI (DSI)",
+      "label": "APIs / harvest / diffusion",
+      "kind": "technique"
+    },
+    {
+      "source": "SI (DSI)",
+      "target": "Gallica & Coop numérique",
+      "label": "APIs IIIF / portails",
+      "kind": "technique"
+    },
+    {
+      "source": "Numérisation & Production",
+      "target": "Gallica & Coop numérique",
+      "label": "Objets numériques (IIIF)",
+      "kind": "technique"
+    },
+    {
+      "source": "Gallica & Coop numérique",
+      "target": "Images & Prestations",
+      "label": "Demandes clients / commandes",
+      "kind": "business"
+    },
+    {
+      "source": "Images & Prestations",
+      "target": "SI (DSI)",
+      "label": "Workflows CRM / facturation",
+      "kind": "technique"
+    },
+    {
+      "source": "SI (DSI)",
+      "target": "Pilotage IA",
+      "label": "Logs & métriques",
+      "kind": "technique"
+    },
+    {
+      "source": "Dépôt légal",
+      "target": "Pilotage IA",
+      "label": "Datasets textuels",
+      "kind": "business"
+    },
+    {
+      "source": "Gallica & Coop numérique",
+      "target": "Pilotage IA",
+      "label": "Objets Gallica (IIIF)",
+      "kind": "business"
+    },
+    {
+      "source": "Métadonnées",
+      "target": "Pilotage IA",
+      "label": "Graphes / autorités",
+      "kind": "business"
+    },
+    {
+      "source": "Pilotage IA",
+      "target": "SI (DSI)",
+      "label": "Retours / modèles / éval",
+      "kind": "technique"
+    },
+    {
+      "source": "Direction DSR",
+      "target": "SI (DSI)",
+      "label": "Pilotage SI & sécurité",
+      "kind": "gouvernance"
+    },
+    {
+      "source": "Direction DSR",
+      "target": "Métadonnées",
+      "label": "Pilotage data",
+      "kind": "gouvernance"
+    },
+    {
+      "source": "Direction DSR",
+      "target": "Dépôt légal",
+      "label": "Pilotage dépôt légal",
+      "kind": "gouvernance"
+    },
+    {
+      "source": "Direction DSR",
+      "target": "Gallica & Coop numérique",
+      "label": "Pilotage diffusion",
+      "kind": "gouvernance"
+    },
+    {
+      "source": "Direction DSR",
+      "target": "Images & Prestations",
+      "label": "Pilotage services",
+      "kind": "gouvernance"
+    }
+  ],
+  "catalog": {
+    "data_objects": [
+      {
+        "name": "Documents physiques"
+      },
+      {
+        "name": "Fichiers numérisés (images/3D/PDF)"
+      },
+      {
+        "name": "Métadonnées bibliographiques"
+      },
+      {
+        "name": "Autorités & référentiels (RAMEAU/ISNI/Dewey)"
+      },
+      {
+        "name": "Données de dépôt légal"
+      },
+      {
+        "name": "Objets IIIF (Gallica)"
+      },
+      {
+        "name": "Commandes / licences"
+      },
+      {
+        "name": "Recettes / facturation"
+      },
+      {
+        "name": "Jeux analytiques (BI/DS)"
+      },
+      {
+        "name": "Logs & métriques SI"
+      },
+      {
+        "name": "Données IA (datasets, évaluations)"
+      }
+    ]
+  }
+}
